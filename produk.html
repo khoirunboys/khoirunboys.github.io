@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kelola Produk - WEARZA</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-admin="products">
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="index.html">WEARZA ADMIN</a>
+      <a href="../index.html">Website ↗</a>
+    </div>
+  </header>
+
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <a href="index.html">Dashboard</a>
+      <a href="produk.html">Kelola Produk</a>
+      <a href="pesanan.html">Kelola Pesanan</a>
+      <a href="../index.html">Website</a>
+      <a href="#" onclick="logoutAdmin()">Logout</a>
+    </aside>
+
+    <main class="admin-content">
+      <h1>Kelola Produk</h1>
+
+      <form id="product-form" class="panel" style="margin-top:20px">
+        <h3>Tambah Produk</h3>
+        <input class="field" name="name" placeholder="Nama HP" required>
+        <input class="field" name="brand" placeholder="Merek" required>
+        <select class="field" name="category" required>
+          <option value="Gaming">Gaming</option>
+          <option value="Flagship">Flagship</option>
+          <option value="Midrange">Midrange</option>
+        </select>
+        <input class="field" name="price" type="number" min="1" placeholder="Harga" required>
+        <input class="field" name="stock" type="number" min="0" placeholder="Stok" required>
+        <input class="field" name="image" type="url" placeholder="URL gambar" required>
+        <input class="field" name="specs" placeholder="Spesifikasi" required>
+        <textarea class="field" name="description" placeholder="Deskripsi" required></textarea>
+        <button class="btn">SIMPAN PRODUK</button>
+      </form>
+
+      <div class="panel table-wrap" style="margin-top:25px">
+        <table>
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Harga</th>
+              <th>Stok</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="admin-products"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

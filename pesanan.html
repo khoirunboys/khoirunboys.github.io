@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pesanan - WEARZA</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-admin="orders">
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="index.html">WEARZA ADMIN</a>
+      <a href="../index.html">Website ↗</a>
+    </div>
+  </header>
+
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <a href="index.html">Dashboard</a>
+      <a href="produk.html">Kelola Produk</a>
+      <a href="pesanan.html">Kelola Pesanan</a>
+      <a href="../index.html">Website</a>
+      <a href="#" onclick="logoutAdmin()">Logout</a>
+    </aside>
+
+    <main class="admin-content">
+      <h1>Daftar Pesanan</h1>
+      <div class="panel table-wrap" style="margin-top:25px">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Pelanggan</th>
+              <th>Total</th>
+              <th>Pembayaran</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="admin-orders"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

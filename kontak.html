@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak Kami | WEARZA</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    color: #222;
+}
+
+/* NAVBAR */
+header {
+    background: #111;
+    color: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff3333;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #ff3333;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(120deg, #111, #292929);
+    color: white;
+    padding: 65px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.hero h1 span {
+    color: #ff3333;
+}
+
+.hero p {
+    color: #ccc;
+    font-size: 15px;
+}
+
+/* CONTAINER */
+.container {
+    width: 86%;
+    max-width: 1100px;
+    margin: 50px auto;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 25px;
+}
+
+/* INFORMASI */
+.info-box, .form-box {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+.info-box h2, .form-box h2 {
+    margin-bottom: 15px;
+    font-size: 23px;
+}
+
+.info-box > p {
+    color: #777;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.contact-item {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.contact-icon {
+    width: 48px;
+    height: 48px;
+    background: #fff0f0;
+    color: #e52b2b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 22px;
+}
+
+.contact-item h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.contact-item p, .contact-item a {
+    color: #777;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+/* SOSIAL MEDIA */
+.social {
+    margin-top: 30px;
+}
+
+.social h3 {
+    margin-bottom: 15px;
+}
+
+.social a {
+    display: inline-block;
+    background: #111;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 7px;
+    margin: 4px 3px 0 0;
+    font-size: 13px;
+}
+
+.social a:hover {
+    background: #e52b2b;
+}
+
+/* FORM */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #e52b2b;
+}
+
+.form-group textarea {
+    height: 140px;
+    resize: vertical;
+}
+
+.btn-kirim {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #e52b2b;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-kirim:hover {
+    background: #bd1717;
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: #aaa;
+    text-align: center;
+    padding: 25px;
+    margin-top: 60px;
+    font-size: 13px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 750px) {
+    header {
+        padding: 18px 5%;
+    }
+
+    nav a {
+        margin-left: 9px;
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .container {
+        width: 92%;
+        margin: 30px auto;
+    }
+
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .info-box, .form-box {
+        padding: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <div class="logo">WEARZA.</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="produk.html">Produk</a>
+        <a href="keranjang.html">Keranjang</a>
+        <a href="kontak.html">Kontak</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Hubungi <span>Kami</span></h1>
+    <p>Kami siap membantu dan menjawab pertanyaan Anda.</p>
+</section>
+
+<!-- KONTAK -->
+<div class="container">
+
+    <div class="contact-layout">
+
+        <!-- INFORMASI KONTAK -->
+        <div class="info-box">
+            <h2>Informasi Kontak</h2>
+
+            <p>
+                Punya pertanyaan tentang produk atau pesanan?
+                Hubungi kami melalui informasi berikut.
+            </p>
+
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                    <h3>Alamat</h3>
+                    <p>Indonesia</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div>
+                    <h3>WhatsApp</h3>
+                    <a href="https://wa.me/6281234567890">
+                        0812-3456-7890
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">✉️</div>
+                <div>
+                    <h3>Email</h3>
+                    <p>wearza@email.com</p>
+                </div>
+            </div>
+
+            <div class="social">
+                <h3>Ikuti Kami</h3>
+
+                <a href="https://instagram.com/" target="_blank">Instagram</a>
+                <a href="https://tiktok.com/" target="_blank">TikTok</a>
+                <a href="https://facebook.com/" target="_blank">Facebook</a>
+            </div>
+        </div>
+
+        <!-- FORM KONTAK -->
+        <div class="form-box">
+            <h2>Kirim Pesan</h2>
+
+            <form id="contactForm">
+
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" id="nama"
+                    placeholder="Masukkan nama Anda" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email"
+                    placeholder="Masukkan email Anda" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Subjek</label>
+                    <input type="text" id="subjek"
+                    placeholder="Masukkan subjek pesan" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Pesan</label>
+                    <textarea id="pesan"
+                    placeholder="Tuliskan pesan Anda..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-kirim">
+                    Kirim Pesan →
+                </button>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 WEARZA. All Rights Reserved.
+</footer>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nama = document.getElementById("nama").value;
+    const email = document.getElementById("email").value;
+    const subjek = document.getElementById("subjek").value;
+    const pesan = document.getElementById("pesan").value;
+
+    const nomorWA = "6281234567890";
+
+    const teks = `Halo WEARZA!
+Nama: ${nama}
+Email: ${email}
+Subjek: ${subjek}
+Pesan: ${pesan}`;
+
+    const url = "https://wa.me/" + nomorWA +
+                "?text=" + encodeURIComponent(teks);
+
+    window.open(url, "_blank");
+});
+</script>
+
+</body>
+</html>

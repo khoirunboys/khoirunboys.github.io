@@ -2,81 +2,13 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keranjang - WEARZA</title>
-    <link rel="stylesheet" href="keranjang.css">
-</head>
-<body>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keranjang Belanja | WEARZA</title>
 
-<header>
-    <a href="index.html" class="logo">WEARZA.</a>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="produk.html">Produk</a>
-        <a href="keranjang.html" class="active">Keranjang 🛒 <span id="jumlah">0</span></a>
-        <a href="login.html">Login</a>
-    </nav>
-</header>
-
-<section class="container">
-    <div class="judul">
-        <p>WEARZA SHOPPING</p>
-        <h1>Keranjang <span>Belanja.</span></h1>
-        <small>Periksa produk pilihanmu sebelum melanjutkan pesanan.</small>
-    </div>
-
-    <div class="content">
-        <div class="produk">
-            <h2>Produk di Keranjang</h2>
-            <div id="daftar-produk">
-                <div class="kosong">
-                    <h1>🛒</h1>
-                    <h3>Keranjang Masih Kosong</h3>
-                    <p>Silakan pilih HP favoritmu.</p>
-                    <a href="produk.html">Mulai Belanja →</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="ringkasan">
-            <h2>Ringkasan Pesanan</h2>
-
-            <div class="baris">
-                <span>Subtotal</span>
-                <strong id="subtotal">Rp0</strong>
-            </div>
-
-            <div class="baris">
-                <span>Ongkos Kirim</span>
-                <strong>Belum dihitung</strong>
-            </div>
-
-            <hr>
-
-            <div class="total">
-                <span>Total</span>
-                <strong id="total">Rp0</strong>
-            </div>
-
-            <button id="checkout">Lanjut Checkout →</button>
-
-            <a href="produk.html" class="lanjut">← Lanjut Belanja</a>
-        </div>
-    </div>
-</section>
-
-<footer>
-    © 2026 WEARZA. All Rights Reserved.
-</footer>
-
-<script src="keranjang.js"></script>
-</body>
-</html>
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
-
+<style>
 * {
     margin: 0;
     padding: 0;
@@ -84,240 +16,563 @@
 }
 
 body {
-    background: #080910;
-    color: white;
     font-family: 'Poppins', sans-serif;
+    background: #090a10;
+    color: white;
 }
 
-header {
-    height: 70px;
-    padding: 0 4%;
+/* NAVBAR */
+.navbar {
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #292b3a;
+    padding: 0 7%;
+    background: #10111a;
+    border-bottom: 1px solid #252635;
 }
 
 .logo {
     font-size: 27px;
     font-weight: 800;
-    letter-spacing: 3px;
     color: #ff315d;
+    letter-spacing: 3px;
     text-decoration: none;
 }
 
-nav {
+.navbar nav {
     display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.navbar nav a:hover,
+.navbar nav .active {
+    color: #ff315d;
+}
+
+/* HEADER */
+.hero {
+    text-align: center;
+    padding: 65px 15px 45px;
+}
+
+.hero .subtitle {
+    color: #ff315d;
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-size: 43px;
+    margin: 13px 0;
+}
+
+.hero h1 span {
+    color: #ff315d;
+}
+
+.hero p {
+    color: #999;
+    font-size: 14px;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1150px;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 80px;
+}
+
+.cart-layout {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
     gap: 25px;
 }
 
-nav a {
-    color: #aaa;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-nav a:hover,
-nav a.active {
-    color: #ff315d;
-}
-
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 65px auto;
-}
-
-.judul {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.judul p {
-    color: #ff315d;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 3px;
-}
-
-.judul h1 {
-    font-size: 40px;
-    margin: 12px 0;
-}
-
-.judul h1 span {
-    color: #ff315d;
-}
-
-.judul small {
-    color: #aaa;
-}
-
-.content {
-    display: grid;
-    grid-template-columns: 1.7fr 1fr;
-    gap: 22px;
-}
-
-.produk,
-.ringkasan {
-    background: #11121c;
-    border: 1px solid #292b3a;
-    border-radius: 13px;
+/* PRODUCT */
+.cart-box,
+.summary-box {
+    background: #141520;
+    border: 1px solid #292b3b;
+    border-radius: 16px;
     padding: 25px;
 }
 
-.produk h2,
-.ringkasan h2 {
+.box-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.box-title h2,
+.summary-box h2 {
     font-size: 18px;
-    margin-bottom: 22px;
 }
 
-.kosong {
-    text-align: center;
-    padding: 45px 10px;
-    color: #aaa;
+.box-title span {
+    color: #999;
+    font-size: 12px;
 }
 
-.kosong a {
-    display: inline-block;
-    margin-top: 20px;
-    background: #ff315d;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-}
-
-.item {
+.product {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 18px 0;
-    border-bottom: 1px solid #292b3a;
+    gap: 17px;
+    padding: 20px 0;
+    border-bottom: 1px solid #292b3b;
 }
 
-.item img {
-    width: 75px;
-    height: 80px;
+.product img {
+    width: 95px;
+    height: 105px;
     object-fit: cover;
-    border-radius: 9px;
+    border-radius: 12px;
+    background: #222431;
 }
 
-.info {
+.product-info {
     flex: 1;
 }
 
-.info h3 {
-    font-size: 14px;
+.product-info h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
 }
 
-.info p {
-    color: #aaa;
+.product-info p {
+    color: #999;
     font-size: 12px;
-    margin-top: 5px;
 }
 
-.harga {
+.price {
     color: #ff315d !important;
-    font-weight: bold;
+    font-weight: 700;
+    margin-top: 8px;
 }
 
-.aksi button {
-    background: #242535;
-    border: 1px solid #444;
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.quantity button {
+    width: 27px;
+    height: 27px;
+    background: #252737;
+    border: 1px solid #393c50;
     color: white;
-    padding: 6px 10px;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    margin: 2px;
 }
 
-.aksi .hapus {
-    background: #601c30;
-    color: #ff9caf;
+.quantity button:hover {
+    background: #ff315d;
 }
 
-.baris,
-.total {
+.remove {
+    background: transparent;
+    color: #ff6681;
+    border: 1px solid #633044;
+    padding: 8px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.remove:hover {
+    background: #ff315d;
+    color: white;
+}
+
+/* SUMMARY */
+.summary-box h2 {
+    margin-bottom: 25px;
+}
+
+.summary-row {
     display: flex;
     justify-content: space-between;
     margin: 20px 0;
     font-size: 13px;
 }
 
-.baris span {
+.summary-row span {
     color: #aaa;
 }
 
+.summary-row strong {
+    text-align: right;
+}
+
 hr {
-    border: 1px solid #292b3a;
+    border: none;
+    border-top: 1px solid #303143;
+    margin: 23px 0;
 }
 
 .total {
-    font-size: 17px;
-    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 25px;
 }
 
 .total strong {
     color: #ff315d;
+    font-size: 21px;
 }
 
-#checkout {
+.checkout {
     width: 100%;
-    padding: 14px;
-    background: #ff315d;
-    color: white;
+    padding: 15px;
     border: none;
-    border-radius: 8px;
-    font-weight: bold;
+    border-radius: 9px;
+    background: linear-gradient(100deg, #ff315d, #d91443);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
     cursor: pointer;
+    transition: .3s;
 }
 
-#checkout:disabled {
-    opacity: .5;
+.checkout:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 22px #ff315d40;
+}
+
+.checkout:disabled {
+    opacity: .4;
     cursor: not-allowed;
+    transform: none;
 }
 
-.lanjut {
+.continue {
     display: block;
     text-align: center;
-    margin-top: 18px;
     color: #aaa;
     text-decoration: none;
     font-size: 12px;
+    margin-top: 20px;
 }
 
+.continue:hover {
+    color: #ff315d;
+}
+
+.note {
+    margin-top: 25px;
+    padding: 13px;
+    background: #1c1d2a;
+    border-radius: 8px;
+    color: #999;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* EMPTY */
+.empty {
+    text-align: center;
+    padding: 45px 10px;
+}
+
+.empty .icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.empty h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.empty p {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.empty a {
+    display: inline-block;
+    background: #ff315d;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+/* FOOTER */
 footer {
     text-align: center;
     padding: 25px;
-    border-top: 1px solid #292b3a;
+    background: #10111a;
+    border-top: 1px solid #252635;
     color: #777;
     font-size: 12px;
 }
 
-@media(max-width:700px) {
-    header {
+/* RESPONSIVE */
+@media(max-width: 750px) {
+    .navbar {
         height: auto;
-        padding: 18px;
+        padding: 20px;
         flex-direction: column;
-        gap: 15px;
+        gap: 17px;
     }
 
-    nav {
-        gap: 15px;
+    .navbar nav {
+        gap: 17px;
     }
 
-    nav a {
+    .navbar nav a {
         font-size: 12px;
     }
 
-    .content {
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .cart-layout {
         grid-template-columns: 1fr;
     }
 
-    .judul h1 {
-        font-size: 28px;
+    .cart-box,
+    .summary-box {
+        padding: 18px;
+    }
+
+    .product img {
+        width: 70px;
+        height: 80px;
+    }
+
+    .product-info h3 {
+        font-size: 12px;
+    }
+
+    .remove {
+        padding: 6px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="logo">WEARZA.</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="produk.html">Produk</a>
+        <a href="keranjang.html" class="active">Keranjang 🛒</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="subtitle">WEARZA SHOPPING</div>
+    <h1>Keranjang <span>Belanja.</span></h1>
+    <p>Produk pilihan terbaikmu ada di sini.</p>
+</section>
+
+<main class="container">
+
+<div class="cart-layout">
+
+    <section class="cart-box">
+        <div class="box-title">
+            <h2>Produk Keranjang</h2>
+            <span id="jumlah">0 Produk</span>
+        </div>
+
+        <div id="daftar"></div>
+    </section>
+
+    <aside class="summary-box">
+        <h2>Ringkasan Pesanan</h2>
+
+        <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="subtotal">Rp0</strong>
+        </div>
+
+        <div class="summary-row">
+            <span>Ongkos Kirim</span>
+            <strong>Belum dihitung</strong>
+        </div>
+
+        <hr>
+
+        <div class="total">
+            <span>Total</span>
+            <strong id="total">Rp0</strong>
+        </div>
+
+        <button class="checkout" id="checkout">
+            LANJUT CHECKOUT →
+        </button>
+
+        <a href="produk.html" class="continue">
+            ← Lanjut Belanja
+        </a>
+
+        <div class="note">
+            🔒 Belanja nyaman bersama WEARZA.
+        </div>
+    </aside>
+
+</div>
+</main>
+
+<footer>
+    © 2026 WEARZA. All Rights Reserved.
+</footer>
+
+<script>
+const KEY = "wearzaCart";
+
+function getCart() {
+    try {
+        return JSON.parse(localStorage.getItem(KEY) || "[]");
+    } catch (e) {
+        return [];
     }
 }
 
+function formatRupiah(number) {
+    return new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+        maximumFractionDigits: 0
+    }).format(number);
+}
+
+function escapeHTML(value) {
+    return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    })[char]);
+}
+
+function tampilkan() {
+    const cart = getCart();
+    const daftar = document.getElementById("daftar");
+
+    let jumlah = 0;
+    let subtotal = 0;
+
+    cart.forEach(item => {
+        const qty = Math.max(1, Number(item.qty) || 1);
+        jumlah += qty;
+        subtotal += Math.max(0, Number(item.price) || 0) * qty;
+    });
+
+    document.getElementById("jumlah").textContent =
+        jumlah + " Produk";
+
+    document.getElementById("subtotal").textContent =
+        formatRupiah(subtotal);
+
+    document.getElementById("total").textContent =
+        formatRupiah(subtotal);
+
+    document.getElementById("checkout").disabled =
+        cart.length === 0;
+
+    if (cart.length === 0) {
+        daftar.innerHTML = `
+            <div class="empty">
+                <div class="icon">🛒</div>
+                <h3>Keranjang Masih Kosong</h3>
+                <p>Yuk, temukan produk favoritmu sekarang!</p>
+                <a href="produk.html">Mulai Belanja →</a>
+            </div>
+        `;
+        return;
+    }
+
+    daftar.innerHTML = cart.map((item, index) => `
+        <div class="product">
+
+            <img
+                src="${escapeHTML(item.image || '')}"
+                alt="${escapeHTML(item.name)}"
+                onerror="this.style.visibility='hidden'"
+            >
+
+            <div class="product-info">
+                <h3>${escapeHTML(item.name)}</h3>
+                <p>${escapeHTML(item.brand || 'Smartphone')}</p>
+
+                <p class="price">
+                    ${formatRupiah(Number(item.price) || 0)}
+                </p>
+
+                <div class="quantity">
+                    <button onclick="ubahJumlah(${index}, -1)">−</button>
+                    <span>${Math.max(1, Number(item.qty) || 1)}</span>
+                    <button onclick="ubahJumlah(${index}, 1)">+</button>
+                </div>
+            </div>
+
+            <button class="remove"
+                onclick="hapus(${index})">
+                Hapus
+            </button>
+
+        </div>
+    `).join("");
+}
+
+function ubahJumlah(index, perubahan) {
+    const cart = getCart();
+
+    if (!cart[index]) return;
+
+    cart[index].qty =
+        (Number(cart[index].qty) || 1) + perubahan;
+
+    if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+    }
+
+    localStorage.setItem(KEY, JSON.stringify(cart));
+    tampilkan();
+}
+
+function hapus(index) {
+    const cart = getCart();
+    cart.splice(index, 1);
+
+    localStorage.setItem(KEY, JSON.stringify(cart));
+    tampilkan();
+}
+
+document.getElementById("checkout").addEventListener("click", () => {
+    if (getCart().length > 0) {
+        alert("Checkout masih berupa demo.");
+    }
+});
+
+tampilkan();
+</script>
+
+</body>
+</html>

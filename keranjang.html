@@ -74,3 +74,250 @@
 <script src="keranjang.js"></script>
 </body>
 </html>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080910;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    height: 70px;
+    padding: 0 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #292b3a;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #ff315d;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff315d;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 65px auto;
+}
+
+.judul {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.judul p {
+    color: #ff315d;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.judul h1 {
+    font-size: 40px;
+    margin: 12px 0;
+}
+
+.judul h1 span {
+    color: #ff315d;
+}
+
+.judul small {
+    color: #aaa;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+    gap: 22px;
+}
+
+.produk,
+.ringkasan {
+    background: #11121c;
+    border: 1px solid #292b3a;
+    border-radius: 13px;
+    padding: 25px;
+}
+
+.produk h2,
+.ringkasan h2 {
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+
+.kosong {
+    text-align: center;
+    padding: 45px 10px;
+    color: #aaa;
+}
+
+.kosong a {
+    display: inline-block;
+    margin-top: 20px;
+    background: #ff315d;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 0;
+    border-bottom: 1px solid #292b3a;
+}
+
+.item img {
+    width: 75px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 9px;
+}
+
+.info {
+    flex: 1;
+}
+
+.info h3 {
+    font-size: 14px;
+}
+
+.info p {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.harga {
+    color: #ff315d !important;
+    font-weight: bold;
+}
+
+.aksi button {
+    background: #242535;
+    border: 1px solid #444;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.aksi .hapus {
+    background: #601c30;
+    color: #ff9caf;
+}
+
+.baris,
+.total {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    font-size: 13px;
+}
+
+.baris span {
+    color: #aaa;
+}
+
+hr {
+    border: 1px solid #292b3a;
+}
+
+.total {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.total strong {
+    color: #ff315d;
+}
+
+#checkout {
+    width: 100%;
+    padding: 14px;
+    background: #ff315d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#checkout:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.lanjut {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid #292b3a;
+    color: #777;
+    font-size: 12px;
+}
+
+@media(max-width:700px) {
+    header {
+        height: auto;
+        padding: 18px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .judul h1 {
+        font-size: 28px;
+    }
+}
+

@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang - WEARZA</title>
+    <link rel="stylesheet" href="keranjang.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">WEARZA.</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="produk.html">Produk</a>
+        <a href="keranjang.html" class="active">Keranjang 🛒 <span id="jumlah">0</span></a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<section class="container">
+    <div class="judul">
+        <p>WEARZA SHOPPING</p>
+        <h1>Keranjang <span>Belanja.</span></h1>
+        <small>Periksa produk pilihanmu sebelum melanjutkan pesanan.</small>
+    </div>
+
+    <div class="content">
+        <div class="produk">
+            <h2>Produk di Keranjang</h2>
+            <div id="daftar-produk">
+                <div class="kosong">
+                    <h1>🛒</h1>
+                    <h3>Keranjang Masih Kosong</h3>
+                    <p>Silakan pilih HP favoritmu.</p>
+                    <a href="produk.html">Mulai Belanja →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="ringkasan">
+            <h2>Ringkasan Pesanan</h2>
+
+            <div class="baris">
+                <span>Subtotal</span>
+                <strong id="subtotal">Rp0</strong>
+            </div>
+
+            <div class="baris">
+                <span>Ongkos Kirim</span>
+                <strong>Belum dihitung</strong>
+            </div>
+
+            <hr>
+
+            <div class="total">
+                <span>Total</span>
+                <strong id="total">Rp0</strong>
+            </div>
+
+            <button id="checkout">Lanjut Checkout →</button>
+
+            <a href="produk.html" class="lanjut">← Lanjut Belanja</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 WEARZA. All Rights Reserved.
+</footer>
+
+<script src="keranjang.js"></script>
+</body>
+</html>

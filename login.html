@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | WEARZA</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+}
+
+/* NAVBAR */
+header {
+    width: 100%;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: #ff3333;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #ff3333;
+}
+
+/* LOGIN AREA */
+.login-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(255, 40, 40, 0.12);
+}
+
+.login-logo {
+    text-align: center;
+    color: #ff3333;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.login-box h1 {
+    text-align: center;
+    color: #222;
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* INPUT */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 9px;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    border-color: #ff3333;
+}
+
+/* PASSWORD */
+.password-box {
+    position: relative;
+}
+
+.password-box input {
+    padding-right: 65px;
+}
+
+.show-password {
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    color: #e52b2b;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* OPTIONS */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 25px;
+    gap: 10px;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #666;
+}
+
+.options a {
+    color: #e52b2b;
+    text-decoration: none;
+}
+
+/* BUTTON */
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background: #e52b2b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #bd1717;
+}
+
+/* REGISTER */
+.register {
+    text-align: center;
+    margin-top: 25px;
+    color: #777;
+    font-size: 14px;
+}
+
+.register a {
+    color: #e52b2b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    color: #999;
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 600px) {
+    header {
+        padding: 18px 5%;
+    }
+
+    nav a {
+        margin-left: 8px;
+        font-size: 12px;
+    }
+
+    .login-box {
+        padding: 28px 22px;
+    }
+
+    .login-box h1 {
+        font-size: 24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <div class="logo">WEARZA.</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="produk.html">Produk</a>
+        <a href="keranjang.html">Keranjang</a>
+        <a href="kontak.html">Kontak</a>
+    </nav>
+</header>
+
+<!-- LOGIN -->
+<div class="login-container">
+
+    <div class="login-box">
+
+        <div class="login-logo">WEARZA.</div>
+
+        <h1>Selamat Datang!</h1>
+
+        <p class="subtitle">
+            Silakan login untuk melanjutkan belanja.
+        </p>
+
+        <form id="loginForm">
+
+            <div class="form-group">
+                <label>Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Masukkan email Anda"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+
+                <div class="password-box">
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Masukkan password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="show-password"
+                        onclick="togglePassword()"
+                    >
+                        Lihat
+                    </button>
+                </div>
+            </div>
+
+            <div class="options">
+                <label class="remember">
+                    <input type="checkbox">
+                    Ingat saya
+                </label>
+
+                <a href="#" onclick="alert('Silakan hubungi admin untuk reset password.')">
+                    Lupa Password?
+                </a>
+            </div>
+
+            <button type="submit" class="login-btn">
+                Login Sekarang →
+            </button>
+
+        </form>
+
+        <div class="register">
+            Belum punya akun?
+            <a href="daftar.html">Daftar Sekarang</a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 WEARZA. All Rights Reserved.
+</footer>
+
+<script>
+
+// Tampilkan atau sembunyikan password
+function togglePassword() {
+    const password = document.getElementById("password");
+    const tombol = document.querySelector(".show-password");
+
+    if (password.type === "password") {
+        password.type = "text";
+        tombol.textContent = "Sembunyi";
+    } else {
+        password.type = "password";
+        tombol.textContent = "Lihat";
+    }
+}
+
+// Simulasi login
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (email && password) {
+        alert("Login berhasil! Selamat datang di WEARZA.");
+        window.location.href = "index.html";
+    }
+});
+
+</script>
+
+</body>
+</html>

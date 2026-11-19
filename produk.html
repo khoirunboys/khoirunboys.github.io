@@ -1,65 +1,333 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kelola Produk - WEARZA</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk - TechStore</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f6fa;
+            color: #222;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #1e293b, #2563eb);
+            color: white;
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #dbeafe;
+        }
+
+        .container {
+            width: 85%;
+            margin: 40px auto;
+        }
+
+        .search {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .search input {
+            padding: 13px;
+            width: 280px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .categories {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .categories button {
+            padding: 10px 20px;
+            border: none;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .categories button:hover,
+        .categories button.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px #00000010;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 25px #00000020;
+        }
+
+        .card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 18px;
+        }
+
+        .info h3 {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #2563eb;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .info button {
+            width: 100%;
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .info button:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+        }
+
+        @media(max-width: 600px) {
+            header {
+                justify-content: center;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .container {
+                width: 90%;
+            }
+
+            .search input {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
-<body data-admin="products">
-  <header>
-    <div class="container navbar">
-      <a class="logo" href="index.html">WEARZA ADMIN</a>
-      <a href="../index.html">Website ↗</a>
+
+<body>
+
+    <header>
+        <div class="logo">TechStore.</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="produk.html">Produk</a>
+            <a href="keranjang.html">Keranjang</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Produk Terbaik Kami</h1>
+        <p>Temukan gadget favoritmu dengan harga terbaik!</p>
+    </section>
+
+    <div class="container">
+
+        <div class="search">
+            <h2>Daftar Produk</h2>
+            <input type="text" id="searchInput"
+                placeholder="Cari produk..."
+                onkeyup="cariProduk()">
+        </div>
+
+        <div class="categories">
+            <button class="active" onclick="filterProduk('semua', this)">Semua</button>
+            <button onclick="filterProduk('Samsung', this)">Samsung</button>
+            <button onclick="filterProduk('Apple', this)">Apple</button>
+            <button onclick="filterProduk('Xiaomi', this)">Xiaomi</button>
+        </div>
+
+        <div class="products" id="productList">
+
+            <div class="card" data-name="Samsung Galaxy S24" data-category="Samsung">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500" alt="Samsung Galaxy">
+                <div class="info">
+                    <h3>Samsung Galaxy S24</h3>
+                    <p class="price">Rp 9.500.000</p>
+                    <button onclick="tambahKeranjang('Samsung Galaxy S24', 9500000)">
+                        + Keranjang
+                    </button>
+                </div>
+            </div>
+
+            <div class="card" data-name="iPhone 15 Pro" data-category="Apple">
+                <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=500" alt="iPhone">
+                <div class="info">
+                    <h3>iPhone 15 Pro</h3>
+                    <p class="price">Rp 16.000.000</p>
+                    <button onclick="tambahKeranjang('iPhone 15 Pro', 16000000)">
+                        + Keranjang
+                    </button>
+                </div>
+            </div>
+
+            <div class="card" data-name="Xiaomi Redmi Note 13" data-category="Xiaomi">
+                <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=500" alt="Xiaomi">
+                <div class="info">
+                    <h3>Xiaomi Redmi Note 13</h3>
+                    <p class="price">Rp 2.500.000</p>
+                    <button onclick="tambahKeranjang('Xiaomi Redmi Note 13', 2500000)">
+                        + Keranjang
+                    </button>
+                </div>
+            </div>
+
+            <div class="card" data-name="Samsung Galaxy Z Flip" data-category="Samsung">
+                <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=500" alt="Samsung Flip">
+                <div class="info">
+                    <h3>Samsung Galaxy Z Flip</h3>
+                    <p class="price">Rp 12.000.000</p>
+                    <button onclick="tambahKeranjang('Samsung Galaxy Z Flip', 12000000)">
+                        + Keranjang
+                    </button>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </header>
 
-  <div class="admin-layout">
-    <aside class="sidebar">
-      <a href="index.html">Dashboard</a>
-      <a href="produk.html">Kelola Produk</a>
-      <a href="pesanan.html">Kelola Pesanan</a>
-      <a href="../index.html">Website</a>
-      <a href="#" onclick="logoutAdmin()">Logout</a>
-    </aside>
+    <footer>
+        <p>© 2026 TechStore. All Rights Reserved.</p>
+    </footer>
 
-    <main class="admin-content">
-      <h1>Kelola Produk</h1>
+    <script>
+        function tambahKeranjang(nama, harga) {
+            let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
 
-      <form id="product-form" class="panel" style="margin-top:20px">
-        <h3>Tambah Produk</h3>
-        <input class="field" name="name" placeholder="Nama HP" required>
-        <input class="field" name="brand" placeholder="Merek" required>
-        <select class="field" name="category" required>
-          <option value="Gaming">Gaming</option>
-          <option value="Flagship">Flagship</option>
-          <option value="Midrange">Midrange</option>
-        </select>
-        <input class="field" name="price" type="number" min="1" placeholder="Harga" required>
-        <input class="field" name="stock" type="number" min="0" placeholder="Stok" required>
-        <input class="field" name="image" type="url" placeholder="URL gambar" required>
-        <input class="field" name="specs" placeholder="Spesifikasi" required>
-        <textarea class="field" name="description" placeholder="Deskripsi" required></textarea>
-        <button class="btn">SIMPAN PRODUK</button>
-      </form>
+            let produk = keranjang.find(item => item.nama === nama);
 
-      <div class="panel table-wrap" style="margin-top:25px">
-        <table>
-          <thead>
-            <tr>
-              <th>Nama</th>
-              <th>Harga</th>
-              <th>Stok</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody id="admin-products"></tbody>
-        </table>
-      </div>
-    </main>
-  </div>
+            if (produk) {
+                produk.jumlah++;
+            } else {
+                keranjang.push({
+                    nama: nama,
+                    harga: harga,
+                    jumlah: 1
+                });
+            }
 
-  <script src="../js/data.js"></script>
-  <script src="../js/admin.js"></script>
+            localStorage.setItem("keranjang", JSON.stringify(keranjang));
+
+            alert(nama + " berhasil ditambahkan ke keranjang!");
+        }
+
+        function cariProduk() {
+            let input = document.getElementById("searchInput").value.toLowerCase();
+            let cards = document.querySelectorAll(".card");
+
+            cards.forEach(card => {
+                let nama = card.dataset.name.toLowerCase();
+                card.style.display = nama.includes(input) ? "block" : "none";
+            });
+        }
+
+        function filterProduk(kategori, tombol) {
+            let cards = document.querySelectorAll(".card");
+
+            cards.forEach(card => {
+                card.style.display =
+                    kategori === "semua" || card.dataset.category === kategori
+                    ? "block" : "none";
+            });
+
+            document.querySelectorAll(".categories button").forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            tombol.classList.add("active");
+            document.getElementById("searchInput").value = "";
+        }
+    </script>
+
 </body>
 </html>

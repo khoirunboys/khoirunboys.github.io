@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak Kami</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: white;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    background: #111827;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #38bdf8;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 70px 20px 35px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: #38bdf8;
+}
+
+.hero p {
+    color: #cbd5e1;
+    font-size: 16px;
+}
+
+/* KONTAK */
+.container {
+    max-width: 1000px;
+    margin: 35px auto 70px;
+    padding: 20px;
+}
+
+.contact-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 35px 20px;
+    border-radius: 18px;
+    text-align: center;
+    border: 1px solid #334155;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #38bdf8;
+    box-shadow: 0 10px 30px #38bdf833;
+}
+
+.icon {
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #cbd5e1;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.card a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.wa a {
+    background: #16a34a;
+}
+
+.ig a {
+    background: #d946ef;
+}
+
+.tt a {
+    background: #111827;
+    border: 1px solid white;
+}
+
+.card a:hover {
+    opacity: .8;
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+    background: #111827;
+    text-align: center;
+    padding: 25px;
+    color: #94a3b8;
+}
+
+@media(max-width: 700px) {
+    .contact-box {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    nav a {
+        margin: 0 7px;
+        font-size: 13px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">MyWebsite.</div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="produk.html">Produk</a>
+        <a href="keranjang.html">Keranjang</a>
+        <a href="kontak.html">Kontak</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Hubungi <span>Kami</span></h1>
+    <p>Jangan ragu untuk menghubungi kami melalui media sosial.</p>
+</section>
+
+<!-- KONTAK -->
+<div class="container">
+
+    <div class="contact-box">
+
+        <!-- WHATSAPP -->
+        <div class="card wa">
+            <div class="icon">📱</div>
+            <h2>WhatsApp</h2>
+            <p>Hubungi kami secara langsung melalui WhatsApp.</p>
+            <a href="https://wa.me/6281234567890" target="_blank">
+                Chat Sekarang
+            </a>
+        </div>
+
+        <!-- INSTAGRAM -->
+        <div class="card ig">
+            <div class="icon">📸</div>
+            <h2>Instagram</h2>
+            <p>Ikuti akun Instagram kami untuk melihat informasi terbaru.</p>
+            <a href="https://instagram.com/username" target="_blank">
+                Follow Instagram
+            </a>
+        </div>
+
+        <!-- TIKTOK -->
+        <div class="card tt">
+            <div class="icon">🎵</div>
+            <h2>TikTok</h2>
+            <p>Kunjungi TikTok kami dan lihat video terbaru.</p>
+            <a href="https://tiktok.com/@username" target="_blank">
+                Follow TikTok
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 MyWebsite. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
